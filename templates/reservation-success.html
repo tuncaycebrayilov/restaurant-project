@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <section class="success-page">
+    <div class="success-inner">
+
+      <div class="success-emblem">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+
+      <span class="sub">Reservation Confirmed</span>
+      <h1>Your table<br><em>is reserved</em></h1>
+
+      <p>
+        Thank you for choosing AUREVO. We are delighted to welcome you and will ensure
+        your evening is everything you have imagined. A confirmation has been sent to your email.
+      </p>
+
+      <div class="success-actions">
+        <a href="{% url 'home' %}" class="btn-gold">Return Home</a>
+        <a href="{% url 'menu' %}" class="btn-outline">Explore Our Menu</a>
+      </div>
+
+    </div>
+  </section>
+
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <!-- ── PAGE HERO ── -->
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=80');"></div>
+    <div class="page-hero-content container">
+      <span class="breadcrumb">Reservations</span>
+      <h1>Reserve Your <em>Table</em></h1>
+    </div>
+  </section>
+
+  <!-- ── RESERVATION BODY ── -->
+  <section class="reservation-body">
+    <div class="container">
+      <div class="reservation-layout">
+
+        <!-- LEFT: Info -->
+        <div class="reservation-info">
+          <span class="eyebrow">Plan Your Evening</span>
+          <h2>An evening <em>awaits you</em></h2>
+          <p>
+            We would be honoured to welcome you to AUREVO. Please complete the form
+            and our team will confirm your reservation within the hour.
+          </p>
+
+          <div class="res-detail">
+            <div class="res-detail-item">
+              <span class="label">Dinner Service</span>
+              <span class="value">17:00 — 23:00, Tuesday to Sunday</span>
+            </div>
+            <div class="res-detail-item">
+              <span class="label">Location</span>
+              <span class="value">12 Élysée Avenue, Paris 75008</span>
+            </div>
+            <div class="res-detail-item">
+              <span class="label">Enquiries</span>
+              <span class="value">reservations@aurevo.com</span>
+            </div>
+          </div>
+
+          <div class="reservation-divider"></div>
+          <p style="font-size:13px; color: var(--ivory-mute); font-style:italic;">
+            For parties of 8 or more, please contact us directly for a bespoke arrangement.
+          </p>
+        </div>
+
+        <!-- RIGHT: Form -->
+        <div class="res-form-wrap">
+          <div class="res-form-title">Book a Table</div>
+
+          {% if success %}
+            <div class="msg-success">
+              ✦ &nbsp;Reservation confirmed — we look forward to welcoming you.
+            </div>
+          {% endif %}
+          {% if error %}
+            <div class="msg-error">
+              {{ error }}
+            </div>
+          {% endif %}
+
+          <form method="POST">
+            {% csrf_token %}
+            <div class="form-row">
+              <div class="form-field">
+                <label for="full_name">Full Name</label>
+                <input type="text" id="full_name" name="full_name" required autocomplete="name">
+              </div>
+              <div class="form-field">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required autocomplete="email">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" min="{{ today }}" required>
+              </div>
+              <div class="form-field">
+                <label for="time">Time</label>
+                <input type="time" id="time" name="time" min="17:00" max="23:00" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field full">
+                <label for="guests">Number of Guests</label>
+                <input type="number" id="guests" name="guests" min="1" max="20" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field full">
+                <label for="special_requests">Special Requests</label>
+                <textarea id="special_requests" name="special_requests"></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn-submit">Confirm Reservation</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

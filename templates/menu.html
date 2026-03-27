@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <!-- ── PAGE HERO ── -->
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1541542684-4a4a16e8b39f?w=1800&q=80');"></div>
+    <div class="page-hero-content container">
+      <span class="breadcrumb">Cuisine</span>
+      <h1>Our <em>Menu</em></h1>
+    </div>
+  </section>
+
+  <!-- ── MENU BODY ── -->
+  <section class="menu-body">
+    <div class="container">
+
+      <!-- STARTERS -->
+      <div class="menu-category-block">
+        <div class="category-header">
+          <h2>Starters <em>&amp; Amuse</em></h2>
+          <div class="category-line"></div>
+        </div>
+        <div class="menu-items-grid">
+          {% for item in items %}
+            {% if item.category == "starter" %}
+              <div class="menu-item">
+                <div class="menu-item-info">
+                  <h3>{{ item.name }}</h3>
+                  <p>{{ item.description }}</p>
+                </div>
+                <div class="menu-item-price">${{ item.price }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- MAIN COURSES -->
+      <div class="menu-category-block">
+        <div class="category-header">
+          <h2>Main <em>Courses</em></h2>
+          <div class="category-line"></div>
+        </div>
+        <div class="menu-items-grid">
+          {% for item in items %}
+            {% if item.category == "main" %}
+              <div class="menu-item">
+                <div class="menu-item-info">
+                  <h3>{{ item.name }}</h3>
+                  <p>{{ item.description }}</p>
+                </div>
+                <div class="menu-item-price">${{ item.price }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- DESSERTS -->
+      <div class="menu-category-block">
+        <div class="category-header">
+          <h2>Desserts <em>&amp; Mignardises</em></h2>
+          <div class="category-line"></div>
+        </div>
+        <div class="menu-items-grid">
+          {% for item in items %}
+            {% if item.category == "dessert" %}
+              <div class="menu-item">
+                <div class="menu-item-info">
+                  <h3>{{ item.name }}</h3>
+                  <p>{{ item.description }}</p>
+                </div>
+                <div class="menu-item-price">${{ item.price }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- DRINKS -->
+      <div class="menu-category-block">
+        <div class="category-header">
+          <h2>Cellar <em>&amp; Drinks</em></h2>
+          <div class="category-line"></div>
+        </div>
+        <div class="menu-items-grid">
+          {% for item in items %}
+            {% if item.category == "drink" %}
+              <div class="menu-item">
+                <div class="menu-item-info">
+                  <h3>{{ item.name }}</h3>
+                  <p>{{ item.description }}</p>
+                </div>
+                <div class="menu-item-price">${{ item.price }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+{% endblock %}

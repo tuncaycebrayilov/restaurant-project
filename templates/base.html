@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AUREVO — Fine Dining</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&family=Cormorant:ital@1&display=swap">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header id="site-header">
+    <div class="nav-inner">
+      <div class="logo">
+        <a href="{% url 'home' %}">AUREVO</a>
+      </div>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'menu' %}">Menu</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'blog' %}">Journal</a></li>
+        <li><a href="{% url 'reservation' %}" class="nav-reserve">Reserve</a></li>
+      </ul>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── PAGE CONTENT ── -->
+  {% block content %}{% endblock %}
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo">AUREVO</span>
+        <p>Where taste meets elegance. A sanctuary of refined culinary artistry since 2010.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'menu' %}">Menu</a></li>
+          <li><a href="{% url 'about' %}">Our Story</a></li>
+          <li><a href="{% url 'blog' %}">Journal</a></li>
+          <li><a href="{% url 'reservation' %}">Reservations</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Visit Us</h4>
+        <address>
+          12 Élysée Avenue<br>
+          Paris, 75008<br><br>
+          Dinner: 17:00 — 23:00<br>
+          Tuesday — Sunday
+        </address>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 AUREVO Restaurant. All rights reserved.</p>
+      <p style="color: var(--ivory-mute); font-size:11px; letter-spacing:1px;">Crafted with intention.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Sticky header
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile nav toggle
+    const toggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+    });
+
+    // Parallax hero bg on load
+    document.querySelectorAll('.hero, .page-hero').forEach(el => {
+      window.addEventListener('load', () => el.classList.add('loaded'));
+    });
+  </script>
+
+</body>
+</html>

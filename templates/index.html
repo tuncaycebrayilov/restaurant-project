@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Est. 2010 · Paris</span>
+      <h1>Fine Dining<br><em>Redefined</em></h1>
+      <p class="hero-subtitle">Where every plate is a canvas &amp; every evening, a memory</p>
+      <div class="hero-actions">
+        <a href="{% url 'reservation' %}" class="btn-gold">Reserve a Table</a>
+        <a href="{% url 'menu' %}" class="btn-outline">Explore Menu</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── PHILOSOPHY ── -->
+  <section class="philosophy">
+    <div class="container">
+      <span class="philosophy-label">Our Philosophy</span>
+      <h2>Tradition &amp; innovation,<br><em>in perfect harmony</em></h2>
+      <p>At AUREVO, we blend centuries of culinary heritage with contemporary artistry to craft
+         moments that linger long after the last course. Every ingredient is chosen with reverence;
+         every dish, composed with passion.</p>
+    </div>
+  </section>
+
+  <!-- ── FEATURED DISHES ── -->
+  <section class="featured">
+    <div class="container">
+      <div class="featured-header">
+        <span class="section-eyebrow">Signature Creations</span>
+        <h2 class="section-title">The Art of <em>the Plate</em></h2>
+      </div>
+      <div class="dish-grid">
+        <div class="dish-card">
+          <div class="dish-num">01</div>
+          <h3>Signature Steak</h3>
+          <p>Prime dry-aged cut, gilded with house seasoning and a reduction of aged Bordeaux.</p>
+        </div>
+        <div class="dish-card">
+          <div class="dish-num">02</div>
+          <h3>Truffle Pasta</h3>
+          <p>Handmade tagliatelle with Périgord black truffle, aged parmesan, and brown butter.</p>
+        </div>
+        <div class="dish-card">
+          <div class="dish-num">03</div>
+          <h3>Royal Dessert</h3>
+          <p>Single-origin Valrhona chocolate dome, gilded leaf, and whisper of sea salt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

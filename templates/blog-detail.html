@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <!-- ── PAGE HERO ── -->
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=1800&q=80');"></div>
+    <div class="page-hero-content container">
+      <span class="breadcrumb">Journal</span>
+      <h1>The Art of<br><em>Fine Dining</em></h1>
+    </div>
+  </section>
+
+  <!-- ── BLOG DETAIL BODY ── -->
+  <section class="blog-detail-body">
+    <div class="container">
+      <div class="blog-detail-layout">
+
+        <div class="blog-detail-meta">
+          <span class="date">{{ post.created_at|date:"F d, Y" }}</span>
+          <div class="meta-divider"></div>
+          <span style="font-size:11px; letter-spacing:2px; text-transform:uppercase; color: var(--ivory-mute);">AUREVO Journal</span>
+        </div>
+
+        <h2>{{ post.title }}</h2>
+
+        {% if post.image %}
+          <img class="feature-img" src="{{ post.image.url }}" alt="{{ post.title }}">
+        {% endif %}
+
+        <div class="blog-detail-body-content">
+          <p>{{ post.content|linebreaksbr }}</p>
+        </div>
+
+        <a href="{% url 'blog' %}" class="back-link">Back to Journal</a>
+
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

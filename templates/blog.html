@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <!-- ── PAGE HERO ── -->
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=1800&q=80');"></div>
+    <div class="page-hero-content container">
+      <span class="breadcrumb">Stories</span>
+      <h1>The <em>Journal</em></h1>
+    </div>
+  </section>
+
+  <!-- ── BLOG BODY ── -->
+  <section class="blog-body">
+    <div class="container">
+      <div class="blog-grid">
+        {% for post in posts %}
+          <article class="blog-card">
+            {% if post.image %}
+              <div class="blog-img-wrap">
+                <img class="blog-card-img" src="{{ post.image.url }}" alt="{{ post.title }}">
+              </div>
+            {% endif %}
+            <div class="blog-card-body">
+              <span class="blog-card-date">{{ post.created_at|date:"F d, Y" }}</span>
+              <h3>{{ post.title }}</h3>
+              <p>{{ post.content|truncatewords:20 }}</p>
+              <a href="{% url 'blog_detail' post.id %}" class="blog-read-more">Read Article</a>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
