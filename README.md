@@ -64,4 +64,6 @@ http://127.0.0.1:8000/admin
 ![Reservation](https://github.com/user-attachments/assets/c1545827-acd2-4465-8f61-01b22f7b17cf)
 
 ### Admin Panel
-![Admin](https://github.com/user-attachments/assets/0d963811-966b-488c-acf5-19c24f820bff)
+![Admin](https://github.com/user-attachments/assets/9fe8ebdc-87f7-4b89-b29a-d8168d41ca1f)
+
+
