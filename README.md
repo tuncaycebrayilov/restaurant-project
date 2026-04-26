@@ -20,34 +20,35 @@ A modern luxury restaurant website built with Django.
 ## ⚙️ Installation
 
 1. Clone the repository:
-git clone https://github.com/tuncaycebrayilov/restaurant-project.git
-cd restaurant-project
+```git clone https://github.com/tuncaycebrayilov/restaurant-project.git
+cd restaurant-project```
+
 
 
 2. Create virtual environment:
-python3 -m venv venv
-source venv/bin/activate
+```python3 -m venv venv
+source venv/bin/activate```
 
 
 3. Install dependencies:
-pip install -r requirements.txt
+```pip install -r requirements.txt```
 
 
 4. Run migrations:
-python3 manage.py migrate
+```python3 manage.py migrate```
 
 
 5. Start server:
-python3 manage.py runserver
+```python3 manage.py runserver```
 
 
 ## 🔐 Admin Panel
 
 Create admin user:
-python3 manage.py createsuperuser
+```python3 manage.py createsuperuser```
 
 Then open:
-http://127.0.0.1:8000/admin
+```http://127.0.0.1:8000/admin```
 
 ## 📸 Screenshots
 
